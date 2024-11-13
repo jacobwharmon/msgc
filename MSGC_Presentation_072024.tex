@@ -1,0 +1,227 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{graphicx}
+\definecolor{firebrick}{rgb}{0.7, 0.13, 0.13}
+\definecolor{dodgerblue}{rgb}{0.12, 0.56, 1.0}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{Introduction of the Drug Sentencing Grid}
+\date{\today}
+\author{Jake Harmon}
+\institute{University of Minnesota -- Robina Institute}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+\section{Research Questions}
+\begin{frame}{Research Questions}
+    Effect of 2016 introduction of sentencing guidelines for drug offenses on:
+    \begin{itemize}
+        \item Prison time
+        \item Overall sentence length
+        \item Judicial departures
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Research Questions}
+    Effect of 2016 introduction of sentencing guidelines for drug offenses on:
+    \begin{itemize}
+        \item \alert{Prison time}
+        \item Overall sentence length
+        \item Judicial departures
+    \end{itemize}
+\end{frame}
+
+\subsection{Background}
+\begin{frame}{Background: Grid Changes}
+    For those with Criminal History scores 0 or 1, controlled substance crime, 2nd Degree goes from being a \textcolor{firebrick}{presumptive commitment on the standard grid} to a \textcolor{dodgerblue}{presumptive stay on the drug offender grid}
+    \hspace*{-0.75cm}
+    \vspace*{-0.75cm}
+    \includegraphics[scale=0.36,page=1]{images/grid_changes_2015_2016_alt.png}
+\end{frame}
+
+% \begin{frame}{Background: Adoption Timeline}
+%     \hspace*{-0.95cm}
+%     \includegraphics[scale=0.33,page=1]{images/share_of_drug_offenses_on_drug_grid.png}
+% \end{frame}
+
+% \begin{frame}{Background: Adoption Timeline}
+%     \hspace*{-0.95cm}
+%     \includegraphics[scale=0.33,page=1]{images/share_of_drug_offenses_on_drug_grid_by_district.png}
+% \end{frame}
+
+{\footnotesize
+\begin{frame}{Background: Key Definitions}
+    \begin{align*}
+        \textbf{Presumptive Duration} & := \text{sentencing grid recommended length of sentence for} \\
+                              & \quad\quad \text{given offense severity and criminal history \textit{(months)}} \\
+        \textbf{Pronounced Duration} & := \text{pronounced length of sentence \textit{(months)}} \\
+        \textbf{Presumptive Disposition} & := \text{sentencing grid recommended disposition for given} \\
+                              & \quad\quad \text{offense severity and criminal history \textit{(commit or stay)}} \\
+        \textbf{Pronounced Disposition} & := \text{pronounced disposition \textit{(commit or stay)}} \\
+        & \\
+        & \\
+        \textbf{Presumptive Commitment} & := \begin{cases} 
+                                                  \text{presumptive duration} & \textit{if presumptive disposition is commit}  \\
+                                                  0 & \textit{if presumptive disposition is stay}  \\
+                                            \end{cases} \\
+        \textbf{Pronounced Commitment} & := \begin{cases} 
+                                                  \text{pronounced duration} & \textit{if pronounced disposition is commit}  \\
+                                                  0 & \textit{if pronounced disposition is stay}  \\
+                                            \end{cases} \\
+    \end{align*}
+\end{frame}
+}
+
+{\footnotesize
+\begin{frame}{Background: Key Definitions}
+    \begin{align*}
+        \textbf{Presumptive Duration} & := \text{sentencing grid recommended length of sentence for} \\
+                              & \quad\quad \text{given offense severity and criminal history \textit{(months)}} \\
+        \textbf{Pronounced Duration} & := \text{pronounced length of sentence \textit{(months)}} \\
+        \textbf{Presumptive Disposition} & := \text{sentencing grid recommended disposition for given} \\
+                              & \quad\quad \text{offense severity and criminal history \textit{(commit or stay)}} \\
+        \textbf{Pronounced Disposition} & := \text{pronounced disposition \textit{(commit or stay)}} \\
+        & \\
+        & \\
+        \alert{\textbf{Presumptive Commitment}} & := \begin{cases} 
+                                                  \text{presumptive duration} & \textit{if presumptive disposition is commit}  \\
+                                                  0 & \textit{if presumptive disposition is stay}  \\
+                                            \end{cases} \\
+        \alert{\textbf{Pronounced Commitment}} & := \begin{cases} 
+                                                  \text{pronounced duration} & \textit{if pronounced disposition is commit}  \\
+                                                  0 & \textit{if pronounced disposition is stay}  \\
+                                            \end{cases} \\
+    \end{align*}
+\end{frame}
+}
+
+\begin{frame}{Background: Presumptive v. Pronounced}
+    \vspace*{1.00cm}
+    \hspace*{-0.75cm}
+    \includegraphics[scale=0.36,page=1]{images/commitment_changes.png}
+\end{frame}
+
+\section{Methods}
+
+% \begin{frame}{Methods: Model}
+%     \[
+%     \resizebox{1.0\textwidth}{!}{$
+%     Y_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \beta_3 (\text{Treated}_i \times \text{Post}_t) + \sum_{k=1}^{K} \gamma_k X_{itk} + \epsilon_{it}
+%     $}
+%     \]
+%     {\scriptsize
+%     \begin{itemize}
+%         \item $Y_{it}$ := outcome of interest
+%         \item $Treated_i := \begin{cases} 
+%                                       1 & \tiny \text{offense is Controlled Substance 2nd Degree and Criminal History Score is 0 or 1}  \\
+%                                       0 & \tiny \text{otherwise (e.g. criminal history score is 2 or 3)}  \\
+%                                 \end{cases}$
+%         \item $Post_t := \begin{cases} 
+%                                       1 & \tiny \text{offense committed on or after August 1, 2016}  \\
+%                                       0 & \tiny \text{otherwise}  \\
+%                                 \end{cases}$ 
+%         \item $X_{itk}$ := set of $K$ controls including:
+%         \begin{itemize}
+%             \item \scriptsize Defendant age at sentence
+%             \item Defendant sex
+%             \item Defendant race
+%             \item Judicial District
+%             \item Year of Sentence
+%         \end{itemize}
+%         \item i := charge ID
+%         \item t := date of offense
+%         \item estimated using robust standard errors
+%     \end{itemize}
+%     }
+% \end{frame}
+
+\begin{frame}{Methods: Model}
+    \[
+    \resizebox{1.0\textwidth}{!}{$
+    Y_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \alert{\beta_3 (\text{Treated}_i \times \text{Post}_t)} + \sum_{k=1}^{K} \gamma_k X_{itk} + \epsilon_{it}
+    $}
+    \]
+    \begin{center}
+        \alert{Our estimate of $\beta_3$ will be the effect of the introduction of the drug grid on our outcome of interest}
+    \end{center}
+    {\scriptsize
+    \begin{itemize}
+        \item $Y_{it}$ := outcome of interest
+        \item $Treated_i := \begin{cases} 
+                                      1 & \tiny \text{offense is Controlled Substance 2nd Degree and Criminal History Score is 0 or 1}  \\
+                                      0 & \tiny \text{otherwise (e.g. criminal history score is 2 or 3)}  \\
+                                \end{cases}$
+        \item $Post_t := \begin{cases} 
+                                      1 & \tiny \text{offense committed on or after August 1, 2016}  \\
+                                      0 & \tiny \text{otherwise}  \\
+                                \end{cases}$ 
+        \item $X_{itk}$ := set of $K$ controls including:
+        \begin{itemize}
+            \item \scriptsize Defendant age at sentence
+            \item Defendant sex
+            \item Defendant race
+            \item Judicial District
+            \item Year of Sentence
+        \end{itemize}
+        \item i := charge ID
+        \item t := date of offense
+        \item estimated using robust standard errors
+    \end{itemize}
+    }
+\end{frame}
+
+\subsection{Sample}
+\begin{frame}{Methods: Sample}
+    \begin{itemize}
+        \item Observations from 2011-2022
+        \item Limited to drug offenses ('offtype' == 'drugs')
+        \item Limited to Controlled Substance Crime, 2nd Degree
+        \item Limited to cases where defendant had a Criminal History Score between 0 and 3, inclusive
+    \end{itemize}
+\end{frame}
+
+% \begin{frame}{Methods: Sample}
+%     \hspace*{-0.8cm}
+%     \includegraphics[scale=0.45,page=1]{images/ITT_table_0_summary_stats.pdf}
+% \end{frame}
+
+
+\section{Results}
+% \begin{frame}{Results: Presumptive Commitment}
+%     \hspace*{1.5cm}
+%     \includegraphics[scale=0.35,page=1]{images/ITT_table_2a_presumptive_commitment.pdf}
+% \end{frame}
+\begin{frame}{Results: Presumptive Commitment}
+    \hspace*{0.95cm}
+    \includegraphics[scale=0.35,page=1]{images/presumptive_results_comparison.png}
+\end{frame}
+
+% \begin{frame}{Results: Pronounced Commitment}
+%     \hspace*{1.5cm}
+%     \includegraphics[scale=0.35,page=1]{images/ITT_table_2b_pronounced_commitment.pdf}
+% \end{frame}
+\begin{frame}{Results: Pronounced Commitment}
+    \hspace*{0.95cm}
+    \includegraphics[scale=0.315,page=1]{images/pronounced_results_comparison.png}
+\end{frame}
+
+
+\end{document}
