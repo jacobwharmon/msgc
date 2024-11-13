@@ -1,35 +1,3 @@
-# A) Directory Structure
-## data
-#### `\data\jake_files\`: this is where all of Jake's data outputs live, namely `data_clean.csv` which is the cleaned and combined 1991-2022 dataset
-
-#### `\data\nick_files\`: this is where some of Nick's data outputs live, namely `statuteName2022.xlsx`
-
-#### `\data\UMN Data\`: this is a raw, unedited mirror of the files in the MSGC Dropbox. This is all view-only so that we have documentation (via the python scripts) of every cleaning step we do from the raw files all the way to `\data\jake_files\data_clean.csv`
-
-
-## figures
-#### This is where are all the figures produced by `\scripts\drug_grid_introduction.ipynb` and `\scripts\drug_grid_intent_to_treat.ipynb` live as well as 
-
-#### Relevant versions of the Standard Sentencing Guidelines Grids and Drug Sentencing Guidelines Grids also live here, as they are used in the reports found in `\output\`
-
-
-## output
-#### This is where all of the reports I've made in overleaf live, both the `.tex`'s and their corresponding `.pdf`'s
-
-#### `output\tables\`: the tables you see used in the reports above, as well as in `\slides\`, are produced by scripts as `.csv` or `.xlsx` and then formatted and printed as `.pdf`
-
-
-## scripts
-#### Every python file lives in here and is described in detail in section B
-
-
-## slides
-#### Materials (`.tex` and corresponding `.pdf`) for the 20 July 2024 presentation to the Minnesota Sentencing Guidelines Commission of our work on the 2016 Introduction of the Drug Grid
-
-#### `slides\images\` is where all of the `.png`'s referenced in the `.tex` file live
-
-
-# B) Description of Work Done
 ## 0) `cleaning.py` 
 (`cleaning.ipynb` is just the interactive/debugging version of `cleaning.py`)
 ### Inputs:
